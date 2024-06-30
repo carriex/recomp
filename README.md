@@ -102,3 +102,48 @@ python train_hf_summarization_model.py \
 --per_device_eval_batch_size=16 \
 --predict_with_generate
 ```
+
+
+## Training
+
+### Extractive compressor
+Download the pre-processed training data [here](https://drive.google.com/drive/folders/1Roahn6qQxB_zZ5j4ZtNm4GQk68m63nqn?usp=sharing)
+
+Run the below script to train abstractive compressor for (e.g. NQ):
+
+```bash
+python train_extractive_compressor.py \
+--model_name facebook/contriever \
+--train_data_path data/extractive_training/nq/train.json \
+--dev_data_path data/extractive_training/nq/dev.json
+```
+
+### Abstractive compressor
+Download the pre-processed training data [here](https://drive.google.com/drive/folders/1Roahn6qQxB_zZ5j4ZtNm4GQk68m63nqn?usp=sharing)
+
+Run the below script to train abstractive compressor for (e.g. NQ):
+
+```bash
+python train_hf_summarization_model.py \
+    --model_name_or_path t5-large \
+    --do_train \
+    --do_eval \
+    --evaluation_strategy steps \
+    --logging_steps 10 \
+    --eval_steps 1000 \
+    --save_steps 1000 \
+    --train_file data/abstractive_training/nq/train.json \
+    --validation_file data/abstractive_training/nq/dev.json \
+    --report_to tensorboard \
+    --max_target_length 512 \
+    --output_dir [output_dir] \
+    --per_device_train_batch_size=2 \
+    --gradient_accumulation_steps=2 \
+    --per_device_eval_batch_size=8 \
+    --overwrite_output_dir \
+    --predict_with_generate \
+    --save_total_limit 3 \
+    --logging_first_step True \
+    --max_eval_samples 10000 \
+    --load_best_model_at_end
+```
