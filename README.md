@@ -113,7 +113,7 @@ Run the below script to train abstractive compressor for (e.g. NQ):
 
 ```bash
 python train_extractive_compressor.py \
---model_name facebook/contriever \
+--model_name facebook/contriever-msmarco \
 --train_data_path data/extractive_training/nq/train.json \
 --dev_data_path data/extractive_training/nq/dev.json
 ```
