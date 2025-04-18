@@ -147,3 +147,12 @@ python train_hf_summarization_model.py \
     --max_eval_samples 10000 \
     --load_best_model_at_end
 ```
+
+### Evaluating the answer
+
+Run the below command to evaluate EM and F1 for QA tasks. For example, to evaluate on FLAN-UL2's performance on NQ with no passage prepending:
+
+```bash
+python eval_qa.py \
+--input_file data/completions/flan_ul2_nq_5shot_no_passage.csv
+```
