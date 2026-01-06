@@ -106,8 +106,9 @@ python train_hf_summarization_model.py \
 
 ## Training
 
+Download the pre-processed training data [here](https://huggingface.co/datasets/fangyuan/recomp_training)
+
 ### Extractive compressor
-Download the pre-processed training data [here](https://drive.google.com/drive/folders/1Roahn6qQxB_zZ5j4ZtNm4GQk68m63nqn?usp=sharing)
 
 Run the below script to train abstractive compressor for (e.g. NQ):
 
@@ -119,7 +120,6 @@ python train_extractive_compressor.py \
 ```
 
 ### Abstractive compressor
-Download the pre-processed training data [here](https://drive.google.com/drive/folders/1Roahn6qQxB_zZ5j4ZtNm4GQk68m63nqn?usp=sharing)
 
 Run the below script to train abstractive compressor for (e.g. NQ):
 
